@@ -1,29 +1,23 @@
-@extends("api.admins.layouts.layout")
+@extends("admin.admins.layouts.layout")
 @section("main")
     <div class="row" style="margin-left: 250px">
-        <form action="{{url("/admin/categories/update",["category"=>$category->id])}}" method="post"
-              enctype="multipart/form-data" style="margin-top: 50px">
+        <form action="{{url("/admin/categories/store")}}" method="post" enctype="multipart/form-data"
+              style="margin-top: 50px">
             @csrf
             <div class="form-group">
                 <div class="form-create">
                     <label for="exampleFormControlInput1">Name</label>
-                    <input name="name" type="text" class="form-control" placeholder="" value="{{$category->name}}"
-                           style="width: 300px">
+                    <input name="name" type="text" class="form-control" placeholder="" style="width: 300px">
                 </div>
                 <br>
 
                 <div class="form-group" style="margin-top: 100px">
                     <label for="exampleFormControlFile1">Thumbnail</label>
-                    @if($category->thumbnail)
-                        <img src="{{ $category->thumbnail }}" alt="Thumbnail" style="width: 80px;">
-                        <u>  {{ $category->thumbnail }}</u>
-                    @endif
-                    <input type="file" name="thumbnail" class="form-control-file" value="{{$category->thumbnail}}"
-                           id="exampleFormControlFile1">
+                    <input type="file" name="thumbnail" class="form-control-file" id="exampleFormControlFile1">
                 </div>
 
                 <div class="form-group" style="margin-top: 50px">
-                    <button s type="submit" class="btn btn-primary">Edit</button>
+                    <button s type="submit" class="btn btn-primary">Create</button>
                 </div>
             </div>
 

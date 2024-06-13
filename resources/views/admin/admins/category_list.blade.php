@@ -1,4 +1,4 @@
-@extends("api.admins.layouts.layout")
+@extends("admin.admins.layouts.layout")
 @section("main")
     <div class="wrapper">
         <div class="row" style="margin-top: 50px">

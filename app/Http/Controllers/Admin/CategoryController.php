@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -11,12 +11,12 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view("admins.category_list", ["categories" => $categories]);
+        return view("admin.admins.category_list", ["categories" => $categories]);
     }
 
     public function create()
     {
-        return view("admins.category_create");
+        return view("admin.admins.category_create");
     }
 
     public function store()
@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view("admins.category_edit", ["category" => $category]);
+        return view("admin.admins.category_edit", ["category" => $category]);
     }
 
     public function update(Request $request, Category $category)
