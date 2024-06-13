@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
-use function Laravel\Prompts\error;
 
 class ProductController extends Controller
 {
@@ -13,7 +12,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $products = Product::all();
-        return view("admins.product_list",
+        return view("admin.products.index",
             ["products" => $products],
             ["categories" => $categories]
         );
@@ -22,7 +21,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view("admins.product_create", ["categories" => $categories]);
+        return view("admins.products.create", ["categories" => $categories]);
     }
 
     public function store()
@@ -57,7 +56,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $categories = Category::all();
-        return view("admins.product_edit",
+        return view("admin.products.edit",
             ["categories" => $categories],
             ["product" => $product]
         );
