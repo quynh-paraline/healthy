@@ -1,4 +1,4 @@
-@extends("admin.admins.layouts.layout")
+@extends("admin.categories.layouts.layout")
 @section("main")
     <div class="row" style="margin-left: 250px">
         <form action="{{url("/admin/categories/update",["category"=>$category->id])}}" method="post"

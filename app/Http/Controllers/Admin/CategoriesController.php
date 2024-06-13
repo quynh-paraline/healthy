@@ -6,17 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoriesController extends Controller
 {
     public function index()
     {
         $categories = Category::all();
-        return view("admin.admins.category_list", ["categories" => $categories]);
+        return view("admin.categories.index", ["categories" => $categories]);
     }
 
     public function create()
     {
-        return view("admin.admins.category_create");
+        return view("admin.categories.create");
     }
 
     public function store()
@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view("admin.admins.category_edit", ["category" => $category]);
+        return view("admin.categories.edit", ["category" => $category]);
     }
 
     public function update(Request $request, Category $category)
