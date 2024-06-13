@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use App\Models\Category;
 use App\Models\Product;
@@ -22,13 +22,13 @@ class CartController
         if (Auth::check()) {
             // Lấy người dùng hiện tại
             $user = Auth::user();
-            return view("pages.cart", [
+            return view("web.cart.index", [
                 "products" => $products,
                 "categories" => $categories,
                 "total" => $total
             ]);
         } else {
-            return redirect()->to(route("login"));
+            return redirect()->to(route("web.login"));
         }
     }
 
@@ -42,13 +42,13 @@ class CartController
             if ($item->id == $product->id) {
                 $item->buy_qty = $item->buy_qty + $qty;
                 session(["cart" => $cart]);
-                return redirect()->to(route("carts.index"));
+                return redirect()->to(route("web.carts.index"));
             }
         }
         $product->buy_qty = $qty;
         $cart[] = $product;
         session(["cart" => $cart]);
-        return redirect()->to(route("carts.index"));
+        return redirect()->to(route("web.carts.index"));
     }
 
     public function remove($id)
@@ -65,7 +65,7 @@ class CartController
                 }
             }
         }
-        return redirect()->to(route("carts.index"));
+        return redirect()->to(route("web.carts.index"));
     }
 
     public function reduce($id)
@@ -89,7 +89,7 @@ class CartController
                 }
             }
         }
-        return redirect()->to(route("carts.index"));
+        return redirect()->to(route("web.carts.index"));
     }
 
     public function checkout()
@@ -103,7 +103,7 @@ class CartController
         if ($total <= 50) {
             $total += 3;
         }
-        return view("pages.checkout", [
+        return view("web.checkout", [
             "products" => $products,
             "categories" => $categories,
             "total" => $total]);
