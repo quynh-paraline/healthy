@@ -42,14 +42,14 @@
                         @if (Route::has('login'))
                             <li class="nav-item">
                                 <a style="color: #4eb256" class="nav-link"
-                                   href="{{ route('login') }}">{{ __('Login') }}</a>
+                                   href="web/login">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a style="color: #4eb256" class="nav-link"
-                                   href="{{ route('register') }}">{{ __('Register') }}</a>
+                                   href="web/register">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -66,7 +66,7 @@
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="api/logout" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>
