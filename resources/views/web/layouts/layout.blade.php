@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    @include("pages.html.head")
+    @include("web.layouts.parts.head")
 </head>
 <body>
 
 
 <!-- Navbar start -->
-@include("pages.html.navbar")
+@include("web.layouts.parts.navbar")
 <!-- Navbar End -->
 
 
@@ -17,12 +17,12 @@
 
 
 <!-- Banner Section Start-->
-@include("pages.html.banner")
+@include("web.layouts.parts.banner")
 <!-- Banner Section End -->
 
 
 <!-- Footer Start -->
-@include("pages.html.footer")
+@include("web.layouts.parts.footer")
 <!-- Footer End -->
 
 <!-- Copyright Start -->
@@ -51,7 +51,7 @@
 
 
 <!-- JavaScript Libraries -->
-@include("pages.html.script")
+@include("web.layouts.parts.script")
 </body>
 
 </html>

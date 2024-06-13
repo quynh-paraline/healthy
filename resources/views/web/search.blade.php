@@ -1,4 +1,4 @@
-@extends("pages.layouts.layout")
+@extends("web.layouts.layout")
 @section("main")
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Search : {{app("request")->input('content')}}</h1>
@@ -35,12 +35,12 @@
                     </div>
                     <div class="row g-4">
                         <div class="col-lg-3">
-                            @include("pages.shop.aside")
+                            @include("web.shares.sidebar")
                         </div>
 
                         @if($products->count() >=1)
 
-                            @include("pages.shop.products")
+                            @include("web.shares.products")
 
                         @else
                             <div class="col-lg-9">
