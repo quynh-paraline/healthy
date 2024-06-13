@@ -1,4 +1,4 @@
-@extends("web.layouts.layout")
+@extends("web.layouts.main")
 @include("web.layouts.parts.slide")
 
 @php
@@ -95,7 +95,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +117,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +147,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -166,7 +169,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -195,7 +199,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +221,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -245,7 +251,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +273,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -287,7 +295,8 @@
                                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                 <a href="#"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>

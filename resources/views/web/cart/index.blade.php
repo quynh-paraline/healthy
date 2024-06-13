@@ -1,4 +1,4 @@
-@extends("web.layouts.layout")
+@extends("web.layouts.main")
 @section("main")
     <div class="container-fluid page-header py-5">
         <h1 class="text-center text-white display-6">Cart</h1>
@@ -108,8 +108,8 @@
                         </div>
                         <a href="/carts/checkout">
                             <button
-                                class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-                                type="button">Proceed Checkout
+                                    class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
+                                    type="button">Proceed Checkout
                             </button>
                         </a>
                     </div>

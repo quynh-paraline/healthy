@@ -1,4 +1,4 @@
-@extends("web.layouts.layout")
+@extends("web.layouts.main")
 @section("main")
     <div class="container-fluid contact py-5">
         <div class="container py-5">
