@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
@@ -16,7 +17,7 @@ class OrderController extends Controller
         $orders = Order::all();
         $categories = Category::all();
         $products = Product::all();
-        return view("admins.order_list", ["orders" => $orders,
+        return view("admin.orders.index", ["orders" => $orders,
             "categories" => $categories,
             "products" => $products
         ]);
@@ -27,7 +28,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $products = Product::all();
         $categories = Category::all();
-        return view("admins.order_detail", ["order" => $order,
+        return view("admin.orders.detail", ["order" => $order,
             "products" => $products,
             "categories" => $categories
         ]);
@@ -61,7 +62,7 @@ class OrderController extends Controller
 
         $orders = $query->get();
 
-        return view('admins.order_list', ["orders" => $orders]);
+        return view('admin.orders.index', ["orders" => $orders]);
 
     }
 
@@ -130,8 +131,8 @@ class OrderController extends Controller
             $response = $provider->createOrder([
                 "intent" => "CAPTURE",
                 "application_context" => [
-                    "return_url" => route('successTransaction', ["order" => $order->id]),
-                    "cancel_url" => route('cancelTransaction', ["order" => $order->id]),
+                    "return_url" => route('web.successTransaction', ["order" => $order->id]),
+                    "cancel_url" => route('web.cancelTransaction', ["order" => $order->id]),
                 ],
                 "purchase_units" => [
                     0 => [
@@ -153,23 +154,23 @@ class OrderController extends Controller
                     }
                 }
                 return redirect()
-                    ->route('cancelTransaction')
+                    ->route('web.cancelTransaction')
                     ->with('error', 'Something went wrong.');
 
             }
         }
-        return redirect()->to(route("thankyou", ["order" => $order->id]));
+        return redirect()->to(route("web.thankyou", ["order" => $order->id]));
     }
 
     public function successTransaction($id)
     {
         $order = Order::find($id);
         $order->update(["is_paid" => true, "status" => 1]);
-        return redirect()->to(route("thankyou") . $order->id);
+        return redirect()->to(route("web.thankyou") . $order->id);
     }
 
     public function cancelTransaction()
     {
-        return redirect()->to(route("carts.index"));
+        return redirect()->to(route("web.carts.index"));
     }
 }
