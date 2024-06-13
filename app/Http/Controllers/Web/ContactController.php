@@ -9,7 +9,7 @@ class ContactController extends Controller
 
     public function index()
     {
-        return view("web.contact");
+        return view("web.contacts.index");
     }
 
 

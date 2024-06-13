@@ -19,16 +19,16 @@ class ProductsController extends Controller
             $products = Product::paginate(9);
         }
 
-        return view("web.shop", ["categories" => $categories, "products" => $products, "content" => $content]);
+        return view("web.products.index", ["categories" => $categories, "products" => $products, "content" => $content]);
     }
 
-    public function productCategory($id)
+    public function filter($id)
     {
         $category = Category::find($id);
         $categories = Category::all();
         $products = Product::where("category_id", $id)->paginate(9);
 
-        return view("web.products_category",
+        return view("web.products.filter",
             ["products" => $products,
                 "category" => $category,
                 "categories" => $categories]

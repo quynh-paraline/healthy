@@ -8,12 +8,12 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        return view("web.checkout");
+        return view("web.checkouts.index");
     }
 
     public function thankyou($id)
     {
         $order = Order::find($id);
-        return view("web.thankyou", ["order" => $order]);
+        return view("web.checkouts.thankyou", ["order" => $order]);
     }
 }

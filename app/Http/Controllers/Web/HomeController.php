@@ -14,6 +14,6 @@ class HomeController extends Controller
         $categories = Category::all();
         $products = Product::limit(8)->get();
 
-        return view("web.welcome", ["categories" => $categories, "products" => $products]);
+        return view("web.home.home", ["categories" => $categories, "products" => $products]);
     }
 }
