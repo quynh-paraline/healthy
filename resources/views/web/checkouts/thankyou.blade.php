@@ -15,10 +15,10 @@
         <a href="{{url("/")}}" class="btn btn-outline-primary">
             Home
         </a>
-        <a href="{{url("/invoice",[$order->id])}}" class="btn btn-outline-primary">
+        <a href="{{url("/orders/invoice",[$order->id])}}" class="btn btn-outline-primary">
             Order Details
         </a>
-        <a href="{{url("/ordered")}}" class="btn btn-outline-primary">
+        <a href="{{url("/orders/index")}}" class="btn btn-outline-primary">
             Order History
         </a>
     </div>

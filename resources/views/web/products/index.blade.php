@@ -17,7 +17,7 @@
                     <div class="row g-4">
                         <div class="col-xl-3">
                             <div class="input-group w-100 mx-auto d-flex">
-                                <form action="/web/shop" method="get" style="height: 60px;width: 290px">
+                                <form action="/shop" method="get" style="height: 60px;width: 290px">
                                     <input style="width: 205px" type="search" class="form-control p-3" name="content"
                                            value="{{app("request")->input('content')}}"
                                            aria-describedby="search-icon-1">
@@ -40,7 +40,7 @@
 
                         @if($products->count() >=1)
 
-                            @include("pages.shop.products")
+                            @include("web.shares.products")
 
                         @else
                             <div class="col-lg-9">

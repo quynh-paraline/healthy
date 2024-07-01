@@ -1,4 +1,4 @@
-@extends("admins.layouts.layout")
+@extends("admin.layouts.layout")
 @section("main")
     <div class="row" style="margin-left: 250px">
         <form action="{{url("/admin/products/store")}}" method="post" enctype="multipart/form-data"

@@ -10,18 +10,27 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $request = request();
+        $content = $request->get("content");
         $categories = Category::all();
-        $products = Product::all();
+        $u = auth()->user();
+        if ($content) {
+            $products = Product::orderBy("id", "desc")->where("name", "like", "%$content%")->paginate(10);
+        } else {
+            $products = Product::orderBy("id", "desc")->paginate(10);
+        }
         return view("admin.products.index",
-            ["products" => $products],
-            ["categories" => $categories]
+            ["products" => $products,
+            "categories" => $categories,
+            "u"=>$u
+            ]
         );
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view("admins.products.create", ["categories" => $categories]);
+        return view("admin.products.create", ["categories" => $categories]);
     }
 
     public function store()
@@ -31,6 +40,10 @@ class ProductController extends Controller
             "name" => "required",
             "price" => "required|numeric|min:0",
             "qty" => "required|numeric|min:0"
+        ], [
+            "required" => "Vui lòng điền đầy đủ thông tin trước khi xác nhận!",
+            "min" => "Phải nhập tối thiểu :min",
+            "max" => "Nhập giá trị không vượt quá :max"
         ]);
 
         $thumbnail = null;
@@ -49,6 +62,9 @@ class ProductController extends Controller
             "description" => request("description"),
             "category_id" => request("category_id"),
         ]);
+
+        $request->session()->flash('success', 'Product created successfully!');
+
         return redirect()->to(route("admin.products.index"));
     }
 
@@ -72,10 +88,13 @@ class ProductController extends Controller
             "price" => "required|numeric|min:0",
             "qty" => "required|numeric|min:0",
             "category_id" => "required|integer",
+        ], [
+            "required" => "Vui lòng điền đầy đủ thông tin trước khi xác nhận!",
+            "min" => "Phải nhập tối thiểu :min",
+            "max" => "Nhập giá trị không vượt quá :max"
         ]);
 
         // throw errors
-
         $thumbnail = $product->thumbnail;
         if (request()->hasFile("thumbnail")) {
             $file = $request->file("thumbnail");
@@ -99,6 +118,8 @@ class ProductController extends Controller
         $product->category_id = request("category_id");
         $product->save();
 
+        $request->session()->flash('success', 'Product updated successfully!');
+
         return redirect()->to(route("admin.products.index"));
     }
 
@@ -106,6 +127,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+        session()->flash('danger', 'Product deleted successfully!');
         return redirect()->to(route("admin.products.index"));
     }
 }
