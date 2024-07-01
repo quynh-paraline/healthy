@@ -1,4 +1,4 @@
-@extends("admin.categories.layouts.layout")
+@extends("admin.layouts.layout")
 @section("main")
     <div class="wrapper">
         <div class="row" style="margin-top: 50px">
@@ -10,9 +10,11 @@
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <div class="input-group-append">
+                                    @if($u->role == 1)
                                     <a href="{{url("/admin/categories/create")}}" class="btn btn-outline-primary">
                                         Create new category
                                     </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -35,11 +37,13 @@
                                     <td><img src="{{$item->thumbnail}}" class="img-thumbnail" width="100"/></td>
                                     <td>{{$item->name}}</td>
                                     <td>
+                                        @if($u->role == 1)
                                         <a href="{{url("/admin/categories/edit",["category"=>$item->id])}}"
                                            class="btn btn-outline-info">Edit</a>
                                         <a onclick="return confirm('Are you confirm delete this category?')"
-                                           href="{{url("/admin/category/delete",["category"=>$item->id])}}"
+                                           href="{{url("/admin/categories/delete",["category"=>$item->id])}}"
                                            class="btn btn-outline-danger">Delete</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

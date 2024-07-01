@@ -20,7 +20,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a style="color: #4eb256" class="navbar-brand" href="{{ url('/') }}">
+            <a style="color: #4eb256" class="navbar-brand" href="{{route("web.welcome") }}">
                 Healthy food
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -42,14 +42,14 @@
                         @if (Route::has('login'))
                             <li class="nav-item">
                                 <a style="color: #4eb256" class="nav-link"
-                                   href="web/login">{{ __('Login') }}</a>
+                                   href="{{route("web.login")}}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a style="color: #4eb256" class="nav-link"
-                                   href="web/register">{{ __('Register') }}</a>
+                                   href="{{route("web.register")}}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -60,7 +60,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" href="{{ route('web.logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

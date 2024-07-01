@@ -10,6 +10,10 @@ class Authenticate extends Middleware
 {
     public function handle(Request $request, Closure $next, ...$guards)
     {
+        if (!auth()->check()) {
+            return redirect()->to(route("admin.login"));
+        }
+
         return $next($request,$guards);
     }
 }

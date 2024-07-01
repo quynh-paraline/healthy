@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 class FilterRole
@@ -15,14 +16,17 @@ class FilterRole
      */
     public function handle(Request $request, Closure $next): Response
     {
+
         if (!auth()->check()) {
-            return redirect()->to("login");
+            return redirect()->to(route("admin.login"));
         }
+
         $u = auth()->user();
 
-        if ($u->role != "admin") {
-            return redirect()->to("/");
+        if ($u->role != 1) {
+            return redirect()->to(route("admin.orders.index"));
         }
+
         return $next($request);
     }
 }

@@ -11,25 +11,29 @@ class CartController
     public function index()
     {
         $products = session()->has("cart") ? session()->get("cart") : [];
-        $categories = Category::limit(4)->get();
+        $categories = Category::all();
         $total = 0;
         foreach ($products as $item) {
             $total += $item->price * $item->buy_qty;
         }
-        if ($total <= 50) {
+
+        if ($total < 50) {
             $total += 3;
         }
+
         if (Auth::check()) {
             // Lấy người dùng hiện tại
             $user = Auth::user();
             return view("web.cart.index", [
                 "products" => $products,
                 "categories" => $categories,
-                "total" => $total
+                "total" => $total,
+                "user" => $user
             ]);
         } else {
             return redirect()->to(route("web.login"));
         }
+
     }
 
     public function add($id)
@@ -100,10 +104,10 @@ class CartController
         foreach ($products as $item) {
             $total += $item->price * $item->buy_qty;
         }
-        if ($total <= 50) {
+        if ($total < 50) {
             $total += 3;
         }
-        return view("web.checkout", [
+        return view("web.checkouts.index", [
             "products" => $products,
             "categories" => $categories,
             "total" => $total]);

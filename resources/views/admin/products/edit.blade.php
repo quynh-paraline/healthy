@@ -1,4 +1,4 @@
-@extends("admins.layouts.layout")
+@extends("admin.layouts.layout")
 @section("main")
     <div class="row" style="margin-left: 250px">
         <form action="{{url("/admin/products/update",["product"=>$product->id])}}" method="post"
@@ -37,7 +37,7 @@
                 <div class="form-create_2"><label for="exampleFormControlInput1">Category</label>
                     <select name="category_id" class="form-control" style="width: 150px">
                         @foreach($categories as $item)
-                            <option value="{{$item->id}}}">{{$item->name}}</option>
+                            <option value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select></div>
 

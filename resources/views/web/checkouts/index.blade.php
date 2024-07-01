@@ -1,4 +1,4 @@
-@extends("pages.layouts.layout")
+@extends("web.layouts.main")
 @section("main")
     <!-- Single Page Header start -->
     <div class="container-fluid page-header py-5">
@@ -59,15 +59,15 @@
                                     <td class="py-5">
                                         <p class="mb-0 text-dark py-4">Shipping :</p>
                                     </td>
-                                    @if($total-3 >= 50)
-                                        <td class="py-5">
-                                            <label style="margin-top: 25px;color: #81c408;margin-left: 220px"
-                                                   class="form-check-label" for="Shipping-1">Free Shipping</label>
-                                        </td>
-                                    @else
+                                    @if($total < 53)
                                         <td class="py-5">
                                             <label style="margin-top: 25px;color: #e50606;margin-left: 220px"
                                                    class="form-check-label" for="Shipping-1">$3</label>
+                                        </td>
+                                    @else
+                                        <td class="py-5">
+                                            <label style="margin-top: 25px;color: #81c408;margin-left: 220px"
+                                                   class="form-check-label" for="Shipping-1">Free Shipping</label>
                                         </td>
                                     @endif
                                 </tr>
@@ -81,7 +81,8 @@
                                     <td class="py-5"></td>
                                     <td class="py-5">
                                         <div class="py-3 border-bottom border-top">
-                                            <p class="mb-0 text-dark" style="margin-left: -150px">${{$total}}</p>
+
+                                                <p class="mb-0 text-dark" style="margin-left: -150px">${{$total}}</p>
                                         </div>
                                     </td>
                                 </tr>

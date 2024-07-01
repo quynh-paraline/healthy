@@ -1,4 +1,4 @@
-@extends("admin.categories.layouts.layout")
+@extends("admin.layouts.layout")
 @section("main")
     <div class="row" style="margin-left: 250px">
         <form action="{{url("/admin/categories/update",["category"=>$category->id])}}" method="post"
@@ -23,12 +23,10 @@
                 </div>
 
                 <div class="form-group" style="margin-top: 50px">
-                    <button s type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
                 </div>
             </div>
-
         </form>
-
     </div>
 @endsection
 <style>
