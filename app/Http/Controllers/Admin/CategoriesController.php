@@ -11,7 +11,8 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view("admin.categories.index", ["categories" => $categories]);
+        $u = auth()->user();
+        return view("admin.categories.index", ["categories" => $categories,"u"=>$u]);
     }
 
     public function create()
@@ -25,6 +26,8 @@ class CategoriesController extends Controller
         $request->validate([
             "name" => "required",
             "thumbnail" => "required"
+        ], [
+            "required" => "Vui lòng điền đầy đủ thông tin trước khi xác nhận!"
         ]);
 
         $thumbnail = null;
@@ -39,6 +42,9 @@ class CategoriesController extends Controller
             "name" => $request->get("name"),
             "thumbnail" => $thumbnail
         ]);
+
+        $request->session()->flash('success', 'Category created successfully!');
+
         return redirect()->to(route('admin.categories.index'));
     }
 
@@ -51,7 +57,10 @@ class CategoriesController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "thumbnail" => "required",
+            "thumbnail" => "nullable|image",
+        ], [
+            "required" => "Vui lòng điền đầy đủ thông tin trước khi xác nhận!",
+            "image" => "Thumbnail phải là một file ảnh hợp lệ."
         ]);
 
         $thumbnail = $category->thumbnail;
@@ -73,6 +82,8 @@ class CategoriesController extends Controller
         $category->thumbnail = $thumbnail;
         $category->save();
 
+        $request->session()->flash('success', 'Category updated successfully!');
+
         return redirect()->to(route("admin.categories.index"));
     }
 
@@ -80,6 +91,7 @@ class CategoriesController extends Controller
     public function delete(Category $category)
     {
         $category->delete();
-        return redirect()->to("admin.categories.index");
+        session()->flash('danger', 'Category deleted successfully!');
+        return redirect()->to(route("admin.categories.index"));
     }
 }

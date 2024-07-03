@@ -1,4 +1,4 @@
-@extends("admins.layouts.layout")
+@extends("admin.layouts.layout")
 @section("main")
 
     <div class="wrapper">
@@ -7,22 +7,26 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="form-search" style="margin-left: 300px;margin-bottom: -26px">
-                            <form action="/admin/products/search" method="get">
-                                <input style="width: 300px;height: 50px" type="text" name="content"
+                            <form action="/admin/products/index" method="get">
+                                <input style="width: 300px;height: 50px" type="text" name="content" value="{{app("request")->input('content')}}"
                                        placeholder="Search by keyword">
 
                                 <button class="btn btn-success" style="width: 100px;height: 50px;margin-top: -5px"
                                         type="submit">Search
                                 </button>
+                                <a href="{{route("admin.products.index")}}" class="btn btn-primary" style="width: 100px;height: 50px;padding-top: 10px;margin-top: -5px">RESET</a>
                             </form>
                         </div>
 
+
                         <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
+                            <div class="input-group input-group-sm" style="width: 150px;margin-top: 30px">
                                 <div class="input-group-append">
+                                    @if($u->role == 1)
                                     <a href="{{url("/admin/products/create")}}" class="btn btn-outline-primary">
                                         Create new product
                                     </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -53,16 +57,29 @@
                                     <td>{{$item->qty}}</td>
                                     <td>{{$item->Category->name}}</td>
                                     <td>
+                                        @if($u->role == 1)
                                         <a href="{{url("/admin/products/edit",["product"=>$item->id])}}"
                                            class="btn btn-outline-info">Edit</a>
                                         <a onclick="return confirm('Are you comfirm delete this product?')"
-                                           href="{{url("/admin/product/delete",["product"=>$item->id])}}"
+                                           href="{{url("/admin/products/delete",["product"=>$item->id])}}"
                                            class="btn btn-outline-danger">Delete</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+                        <div class="col-12">
+                            <div class="paginate" style="margin-left: 450px">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            {!! $products->links("pagination::bootstrap-4") !!}
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>

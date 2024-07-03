@@ -14,12 +14,12 @@
                         @if (Route::has('login'))
 
                             <a class="btn btn-primary" style="margin-left: 5px;margin-right: 5px"
-                               href="{{ route('login') }}">{{ __('Login') }}</a>
+                               href="{{ route('web.login') }}">{{ __('Login') }}</a>
 
                         @endif
 
                         @if (Route::has('register'))
-                            <a class="btn btn-success" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="btn btn-success" href="{{ route('web.register') }}">{{ __('Register') }}</a>
 
                         @endif
                     @else
@@ -30,13 +30,13 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="{{ route('web.logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('web.logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>
@@ -84,6 +84,22 @@
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Products
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/users/index" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Members
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/administrators/index" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Administrators
                         </p>
                     </a>
                 </li>

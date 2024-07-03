@@ -7,7 +7,7 @@
                 <ul class="list-unstyled fruite-categorie">
                     <li>
                         <div class="d-flex justify-content-between fruite-name">
-                            <a href="{{url("/products",["category"=>$category->id])}}"><i
+                            <a href="{{url("/filter",["category"=>$category->id])}}"><i
                                     class="fas fa-apple-alt me-2"></i>{{$category->name}}</a>
                             <span>({{$category->products->count()}})</span>
                         </div>
