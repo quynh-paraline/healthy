@@ -14,12 +14,12 @@
                         @if (Route::has('login'))
 
                             <a class="btn btn-primary" style="margin-left: 5px;margin-right: 5px"
-                               href="{{ route('web.login') }}">{{ __('Login') }}</a>
+                               href="{{ route('admin.login') }}">{{ __('Login') }}</a>
 
                         @endif
 
                         @if (Route::has('register'))
-                            <a class="btn btn-success" href="{{ route('web.register') }}">{{ __('Register') }}</a>
+                            <a class="btn btn-success" href="{{ route('admin.register') }}">{{ __('Register') }}</a>
 
                         @endif
                     @else
@@ -30,13 +30,13 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('web.logout') }}"
+                            <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('web.logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>
