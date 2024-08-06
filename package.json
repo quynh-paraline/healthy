@@ -13,7 +13,10 @@
     "dependencies": {
         "@vitejs/plugin-vue": "^5.0.5",
         "@vueuse/head": "^2.0.0",
+        "bootstrap": "^5.3.3",
+        "dayjs": "^1.11.11",
         "vue": "^3.4.31",
-        "vue-router": "^4.4.0"
+        "vue-router": "^4.4.0",
+        "vuejs-paginate": "^2.1.0"
     }
 }

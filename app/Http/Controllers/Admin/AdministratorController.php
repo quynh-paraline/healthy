@@ -51,7 +51,7 @@ class AdministratorController extends Controller
             'role' => $request->input('role'),
         ]);
 
-        $request->session()->flash('success', 'Administrator created successfully!');
+        $request->session()->flash('success', 'Administrators created successfully!');
 
         return redirect()->route("admin.administrators.index");
 
@@ -86,7 +86,7 @@ class AdministratorController extends Controller
 
         $administrator->save();
 
-        $request->session()->flash('success', 'Administrator updated successfully!');
+        $request->session()->flash('success', 'Administrators updated successfully!');
 
         return redirect()->route("admin.administrators.index");
     }

@@ -9,7 +9,7 @@
                          style="text-align: center;font-size: 30px;background-color: #4eb256">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{route("web.register")}}">
+                        <form method="POST" action="{{route("admin.register")}}">
                             @csrf
 
                             <div class="row mb-3">
